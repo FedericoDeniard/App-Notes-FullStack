@@ -36,7 +36,7 @@ const CreateNote = ({ onSave, closeNote }) => {
     <div className="new">
       <input
         type="text"
-        maxLength={30}
+        maxLength={20}
         placeholder="Title"
         className="new-title"
         value={title}

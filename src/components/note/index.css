@@ -15,7 +15,7 @@
     display: flex;
     gap: 5px;
     height: fit-content;
-    justify-content: space-between;
+    justify-content: space-a;
 }
 
 .note-header__title {
@@ -44,6 +44,11 @@
     text-align: center;
     display: inline-block;
     background: repeating-linear-gradient(-45deg, #E6E6E6, #E6E6E6 2px, #FFD966 2px, #FFD966 25px);
+}
+
+.note-header__close {
+    margin-left: auto;
+    text-align: right;
 }
 
 .note-body {
