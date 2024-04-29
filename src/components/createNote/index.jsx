@@ -1,5 +1,6 @@
 import "./index.css";
 import { useEffect, useState, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateNote = ({ onSave }) => {
   const [title, setTitle] = useState("");
@@ -19,6 +20,7 @@ const CreateNote = ({ onSave }) => {
     const today = new Date();
     const formattedDate = today.toLocaleDateString();
     const note = {
+      id: uuidv4(),
       title,
       body,
       date: formattedDate,
