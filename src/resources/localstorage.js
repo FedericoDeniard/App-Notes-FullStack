@@ -4,7 +4,6 @@ const checkStorage = (parseNote, notes) => {
     const parsedNotes = JSON.parse(storedNotes);
     parseNote(parsedNotes);
   } else {
-    console.log("No se detecto nada");
   }
 };
 

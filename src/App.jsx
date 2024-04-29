@@ -3,6 +3,7 @@ import "./App.css";
 import Note from "./components/note";
 import CreateNote from "./components/createNote";
 import { checkStorage, updateNotes } from "./resources/localstorage";
+import Header from "./components/header";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <>
+      <Header newNote={() => setAddNewNote(true)} />
       <div className="notes-container">
         {notes.map((note, index) => (
           <Note
@@ -52,9 +54,6 @@ function App() {
       ) : (
         ""
       )}
-      <button className="new-note" onClick={() => setAddNewNote(true)}>
-        New Note
-      </button>
     </>
   );
 }
