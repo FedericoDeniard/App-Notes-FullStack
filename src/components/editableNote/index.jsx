@@ -6,8 +6,11 @@ const EditableNote = ({ onSave, closeNote, prevNote }) => {
   const [title, setTitle] = useState(prevNote.title);
   const [body, setBody] = useState(prevNote.body);
 
-  console.log(prevNote);
   const textRef = useRef(null);
+  const resizeTextArea = () => {
+    textRef.current.style.cssText = `height: ${textRef.current.scrollHeight}px; overflow-y: hidden`;
+  };
+
   const editNote = () => {
     if (title === "" || body === "") {
       alert("Please enter a title and body");
