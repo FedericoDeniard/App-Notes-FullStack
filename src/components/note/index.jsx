@@ -1,9 +1,13 @@
 import CloseButton from "../closeButton";
+import editButton from "../../assets/edit.svg";
 import "./index.css";
 
-const Note = ({ title, date, body, id, onDelete }) => {
+const Note = ({ title, date, body, id, onDelete, onEdit }) => {
   const deleteNote = () => {
     onDelete(id);
+  };
+  const editNote = () => {
+    onEdit(id);
   };
   return (
     <div className="note">
@@ -13,6 +17,7 @@ const Note = ({ title, date, body, id, onDelete }) => {
         <CloseButton closeNote={deleteNote} />
       </div>
       <p className="note-body">{body}</p>
+      <img className="note-edit" src={editButton} onClick={editNote} />
     </div>
   );
 };

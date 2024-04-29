@@ -1,19 +1,14 @@
-import "./index.css";
-import { useState, useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
 import CloseButton from "../closeButton";
+import { useState, useRef } from "react";
+import "./index.css";
 
-const CreateNote = ({ onSave, closeNote }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+const EditableNote = ({ onSave, closeNote, prevNote }) => {
+  const [title, setTitle] = useState(prevNote.title);
+  const [body, setBody] = useState(prevNote.body);
 
+  console.log(prevNote);
   const textRef = useRef(null);
-
-  const resizeTextArea = () => {
-    textRef.current.style.cssText = `height: ${textRef.current.scrollHeight}px; overflow-y: hidden`;
-  };
-
-  const newNote = () => {
+  const editNote = () => {
     if (title === "" || body === "") {
       alert("Please enter a title and body");
       return;
@@ -21,7 +16,7 @@ const CreateNote = ({ onSave, closeNote }) => {
     const today = new Date();
     const formattedDate = today.toLocaleDateString();
     const note = {
-      id: uuidv4(),
+      id: prevNote.id,
       title,
       body,
       date: formattedDate,
@@ -31,32 +26,34 @@ const CreateNote = ({ onSave, closeNote }) => {
     setBody("");
     resizeTextArea();
   };
-
   return (
-    <div className="new">
+    <div className="editable">
       <input
         type="text"
         maxLength={30}
         placeholder="Title"
-        className="new-title"
+        className="editable-title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
         type="text"
-        className="new-body"
+        className="editable-body"
         value={body}
         onChange={(e) => {
           setBody(e.target.value), resizeTextArea();
         }}
         ref={textRef}
       ></textarea>
-      <button className="new-create" onClick={newNote}>
-        Create
+      <button className="editable-create" onClick={editNote}>
+        Save
       </button>
-      <CloseButton closeNote={closeNote} position={"new-close__absolute"} />
+      <CloseButton
+        closeNote={closeNote}
+        position={"editable-close__absolute"}
+      />
     </div>
   );
 };
 
-export default CreateNote;
+export default EditableNote;

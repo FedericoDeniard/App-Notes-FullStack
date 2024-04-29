@@ -1,4 +1,5 @@
 .note {
+    position: relative;
     border: 2px solid #000;
     border-radius: 15px;
     padding: 5px;
@@ -7,7 +8,6 @@
     max-height: 500px;
     width: fit-content;
     background-color: #FFFF99;
-    opacity: 0.8;
     background: repeating-linear-gradient(-45deg, #E6E6E6, #E6E6E6 2px, #FFFF99 2px, #FFFF99 25px);
 }
 
@@ -22,7 +22,6 @@
     font-family: "Roboto";
     font-weight: 500;
     font-size: 18px;
-    text-decoration: underline;
     flex: none;
     border-radius: 25px;
     padding: 5px;
@@ -35,7 +34,7 @@
 
 .note-header__date {
     font-family: "Roboto";
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     flex: none;
     border-radius: 25px;
@@ -50,4 +49,12 @@
 .note-body {
     padding: 7px;
     /* 5px from  note + 2 px from title border */
+}
+
+.note-edit {
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    cursor: pointer;
 }
