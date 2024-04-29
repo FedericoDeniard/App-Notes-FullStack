@@ -2,29 +2,59 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Note from "./components/note";
 import CreateNote from "./components/createNote";
+import { checkStorage, updateNotes } from "./resources/localstorage";
 
 function App() {
-  const [notes, setNote] = useState([]);
+  const [notes, setNotes] = useState([]);
+  const [addNewNote, setAddNewNote] = useState(false);
 
   const addNote = (newNote) => {
-    setNote([...notes, newNote]);
+    setNotes([...notes, newNote]);
+    setAddNewNote(false);
+    updateNotes([...notes, newNote]);
+  };
+
+  const deleteNote = (id) => {
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    setNotes(updatedNotes);
+    updateNotes(updatedNotes);
+  };
+
+  const parseNote = (parsedNotes) => {
+    if (Array.isArray(parsedNotes)) {
+      setNotes(parsedNotes);
+    } else {
+      setNotes([]);
+    }
   };
 
   useEffect(() => {
-    console.log(notes);
-  }, [notes]);
+    checkStorage(parseNote);
+  }, []);
 
   return (
     <>
-      {notes.map((note, index) => (
-        <Note
-          key={note.id}
-          title={note.title}
-          date={note.date}
-          body={note.body}
-        />
-      ))}
-      <CreateNote onSave={addNote} />
+      <div className="notes-container">
+        {notes.map((note, index) => (
+          <Note
+            key={index}
+            id={note.id}
+            title={note.title}
+            date={note.date}
+            body={note.body}
+            onDelete={deleteNote}
+          />
+        ))}
+      </div>
+
+      {addNewNote ? (
+        <CreateNote onSave={addNote} closeNote={() => setAddNewNote(false)} />
+      ) : (
+        ""
+      )}
+      <button className="new-note" onClick={() => setAddNewNote(true)}>
+        New Note
+      </button>
     </>
   );
 }

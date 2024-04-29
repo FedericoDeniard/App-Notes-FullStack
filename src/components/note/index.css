@@ -3,40 +3,48 @@
     border-radius: 15px;
     padding: 5px;
     height: fit-content;
+    max-width: 800px;
+    max-height: 500px;
     width: fit-content;
+    background-color: #FFFF99;
+    opacity: 0.8;
+    background: repeating-linear-gradient(-45deg, #E6E6E6, #E6E6E6 2px, #FFFF99 2px, #FFFF99 25px);
 }
 
 .note-header {
     display: flex;
     gap: 5px;
     height: fit-content;
-    width: fit-content;
+    justify-content: space-between;
 }
 
 .note-header__title {
     font-family: "Roboto";
     font-weight: 500;
     font-size: 18px;
-    flex: 2;
-    border: 1px solid #000;
+    text-decoration: underline;
+    flex: none;
     border-radius: 25px;
     padding: 5px;
     height: fit-content;
     width: fit-content;
     text-align: center;
+    display: inline-block;
+    background: repeating-linear-gradient(-45deg, #E6E6E6, #E6E6E6 2px, #FFD966 2px, #FFD966 25px);
 }
 
 .note-header__date {
     font-family: "Roboto";
     font-weight: 400;
     font-size: 18px;
-    flex: 1;
-    border: 1px solid #000;
+    flex: none;
     border-radius: 25px;
     padding: 5px;
     height: fit-content;
     width: fit-content;
     text-align: center;
+    display: inline-block;
+    background: repeating-linear-gradient(-45deg, #E6E6E6, #E6E6E6 2px, #FFD966 2px, #FFD966 25px);
 }
 
 .note-body {

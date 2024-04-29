@@ -1,0 +1,18 @@
+.new-close {
+
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.new-close:hover {
+    color: #ff9999;
+}

@@ -1,8 +1,9 @@
 import "./index.css";
 import { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
+import CloseButton from "../closeButton";
 
-const CreateNote = ({ onSave }) => {
+const CreateNote = ({ onSave, closeNote }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
@@ -49,12 +50,11 @@ const CreateNote = ({ onSave }) => {
           setBody(e.target.value), resizeTextArea();
         }}
         ref={textRef}
-      >
-        Body
-      </textarea>
+      ></textarea>
       <button className="new-create" onClick={newNote}>
         Create
       </button>
+      <CloseButton closeNote={closeNote} position={"new-close__absolute"} />
     </div>
   );
 };
