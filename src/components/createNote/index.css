@@ -1,0 +1,40 @@
+.new {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 7px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    gap: 7px;
+    align-items: center;
+}
+
+.new-title {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    padding: 2px;
+    width: fit-content;
+    border-radius: 20px;
+    border: 2px solid #000;
+    text-align: center;
+}
+
+
+.new-body {
+    border-radius: 20px;
+    border: 2px solid #000;
+    height: fit-content;
+    width: 215px;
+    padding: 10px;
+    text-align: left;
+    resize: none;
+}
+
+.new-create {
+    border-radius: 20px;
+    border: 2px solid #000;
+    width: fit-content;
+    padding: 5px;
+    text-align: center;
+}

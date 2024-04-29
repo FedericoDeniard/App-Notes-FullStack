@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import Note from "./components/note";
+import CreateNote from "./components/createNote";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [notes, setNote] = useState([]);
 
-  return <></>;
+  const addNote = (newNote) => {
+    setNote([...notes, newNote]);
+  };
+
+  useEffect(() => {
+    console.log(notes);
+  }, [notes]);
+
+  return (
+    <>
+      {notes.map((note, index) => (
+        <Note
+          key={index}
+          title={note.title}
+          date={note.date}
+          body={note.body}
+        />
+      ))}
+      <CreateNote onSave={addNote} />
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,45 @@
+.note {
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 5px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.note-header {
+    display: flex;
+    gap: 5px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.note-header__title {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    flex: 2;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 5px;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+}
+
+.note-header__date {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    flex: 1;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 5px;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+}
+
+.note-body {
+    padding: 7px;
+    /* 5px from  note + 2 px from title border */
+}
