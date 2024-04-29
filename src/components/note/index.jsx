@@ -17,7 +17,9 @@ const Note = ({ title, date, body, id, onDelete, onEdit }) => {
         <CloseButton closeNote={deleteNote} />
       </div>
       <p className="note-body">{body}</p>
-      <img className="note-edit" src={editButton} onClick={editNote} />
+      <div className="note-footer">
+        <img className="note-edit" src={editButton} onClick={editNote} />
+      </div>
     </div>
   );
 };

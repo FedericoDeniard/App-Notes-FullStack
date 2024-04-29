@@ -1,4 +1,4 @@
-const checkStorage = (parseNote, notes) => {
+const checkStorage = (parseNote) => {
   const storedNotes = localStorage.getItem("notes");
   if (storedNotes) {
     const parsedNotes = JSON.parse(storedNotes);

@@ -51,10 +51,14 @@
     /* 5px from  note + 2 px from title border */
 }
 
+.note-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .note-edit {
     height: 20px;
-    position: absolute;
-    right: 10px;
-    bottom: 5px;
     cursor: pointer;
 }

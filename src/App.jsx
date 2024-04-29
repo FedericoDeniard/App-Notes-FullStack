@@ -38,7 +38,6 @@ function App() {
 
   const saveEditNote = (editedNote) => {
     const index = notes.findIndex((note) => note.id === editedNote.id);
-
     if (index !== -1) {
       const updatedNotes = [
         ...notes.slice(0, index),
