@@ -6,7 +6,6 @@ const EditableNote = ({ onSave, closeNote, prevNote }) => {
   const [title, setTitle] = useState(prevNote.title);
   const [body, setBody] = useState(prevNote.body);
 
-  console.log(prevNote);
   const textRef = useRef(null);
   const editNote = () => {
     if (title === "" || body === "") {

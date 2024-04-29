@@ -5,12 +5,16 @@ import CreateNote from "./components/createNote";
 import { checkStorage, updateNotes } from "./resources/localstorage";
 import Header from "./components/header";
 import EditableNote from "./components/editableNote";
+import LoginPage from "./components/login";
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [addNewNote, setAddNewNote] = useState(false);
   const [editingNote, setEditingNote] = useState(false);
   const [noteToEdit, setNoteToEdit] = useState(null);
+
+  const [loginPage, setLoginPage] = useState(false);
+  const [isLogged, setIsLoaded] = useState(false);
 
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
@@ -50,9 +54,17 @@ function App() {
     }
   };
 
+  const login = () => {
+    setLoginPage(true);
+  };
+
   return (
     <>
-      <Header newNote={() => setAddNewNote(true)} />
+      <Header
+        login={login}
+        newNote={() => setAddNewNote(true)}
+        logged={isLogged}
+      />
       <div className="notes-container">
         {notes.map((note, index) => (
           <Note
@@ -84,6 +96,7 @@ function App() {
       ) : (
         ""
       )}
+      {loginPage ? <LoginPage closeLogin={() => setLoginPage(false)} /> : ""}
     </>
   );
 }
