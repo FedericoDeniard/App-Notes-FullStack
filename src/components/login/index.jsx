@@ -18,7 +18,7 @@ const LoginPage = ({ closeLogin }) => {
     closeLogin;
   });
 
-  console.log(JSON.stringify(watch(), null, 1));
+  // console.log(JSON.stringify(watch(), null, 1));
 
   return (
     <div className="login">
@@ -30,26 +30,26 @@ const LoginPage = ({ closeLogin }) => {
 
       <form className="login-form" onSubmit={onSubmit}>
         {/* Nombre */}
-        <label htmlFor="nombre">Nombre</label>
+        <label htmlFor="name">Username</label>
         <input
           type="text"
-          {...register("nombre", {
-            required: { value: true, message: "Nombre es requerido" },
-            minLength: { value: 2, message: "Mínimo 2 caracteres" },
-            maxLength: { value: 20, message: "Máximo 20 caracteres" },
+          {...register("name", {
+            required: { value: true, message: "Name is required" },
+            minLength: { value: 2, message: "2 characters minimun" },
+            maxLength: { value: 20, message: "20 characters maximun" },
           })}
         />
-        {errors.nombre && <span>{errors.nombre.message}</span>}
+        {errors.name && <span>{errors.name.message}</span>}
         {/* Correo */}
-        <label htmlFor="correo">Correo</label>
+        <label htmlFor="email">email</label>
         <input
           type="email"
           name=""
           {...register("email", {
-            required: { value: true, message: "Correo es requerido" },
+            required: { value: true, message: "Email is required" },
             pattern: {
               value: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]$/,
-              message: "Correo no válido",
+              message: "Invalid email",
             },
           })}
         />
@@ -59,43 +59,43 @@ const LoginPage = ({ closeLogin }) => {
         <input
           type="password"
           {...register("password", {
-            required: { value: true, message: "Contraseña requerida" },
+            required: { value: true, message: "Password required" },
             minLength: {
               value: 8,
-              message: "La contraseña debe tener porlomenos 8 caracteres",
+              message: "The password must be at least 8 characters long",
             },
           })}
         />
         {errors.password && <span>{errors.password.message}</span>}
         {/* Confirmar contraseña */}
-        <label htmlFor="confirmarPassword">Confirmar contraseña</label>
+        <label htmlFor="confirmPassword">Confirm password</label>
         <input
           type="password"
-          {...register("confirmarPassword", {
+          {...register("confirmPassword", {
             required: {
               value: true,
-              message: "Confirmar password es requerido",
+              message: "Confirm password is required",
             },
             validate: (value) =>
-              value === watch("password") || "Las contraseñas no coinciden",
+              value === watch("password") || "Passwords do not match",
           })}
         />
-        {errors.confirmarPassword && (
-          <span>{errors.confirmarPassword.message}</span>
+        {errors.confirmPassword && (
+          <span>{errors.confirmPassword.message}</span>
         )}
         {/* Terminos y condiciones */}
-        <label htmlFor="terminos">Acepto terminos y condiciones</label>
+        <label htmlFor="terms">I accept the terms and conditions</label>
         <input
           type="checkbox"
-          {...register("terminos", {
+          {...register("terms", {
             required: {
               value: true,
-              message: "Debes aceptar los términos y condiciones",
+              message: "You must accept the terms and conditions",
             },
           })}
         />
-        {errors.terminos && <span>{errors.terminos.message}</span>}
-        <button type="submit">Enviar</button>
+        {errors.terms && <span>{errors.terms.message}</span>}
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
