@@ -3,11 +3,12 @@ import addNoteSVG from "../../assets/addNote.svg";
 import loginSVG from "../../assets/login.svg";
 import logoutSVG from "../../assets/logout.svg";
 
-const Header = ({ newNote, logged, login }) => {
+const Header = ({ newNote, logged, login, username }) => {
   console.log(logged);
 
   return (
     <div className="header">
+      {logged ? username : ""}
       <div className="header-center">
         <img onClick={newNote} className="header-add" src={addNoteSVG} />
       </div>
